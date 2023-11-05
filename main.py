@@ -132,13 +132,13 @@ if model_choice == "Decision Tree":
         # show the visual representation of the tree
         st.write("Number of mislabeled points out of a total %d points : %d"
         % (X_test.shape[0], (y_test != y_pred_baseline).sum()))
-        dot_data = StringIO()
-        export_graphviz(clf, out_file = dot_data, filled = True, rounded = True,
-        special_characters = True, feature_names = feature_cols, class_names=['absense','presence'])
-        graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
-        image = Image.open(io.BytesIO(graph.create_png()))
-        st.image(image)
-
+        # dot_data = StringIO()
+        # export_graphviz(clf, out_file = dot_data, filled = True, rounded = True,
+        # special_characters = True, feature_names = feature_cols, class_names=['absense','presence'])
+        # graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
+        # image = Image.open(io.BytesIO(graph.create_png()))
+        # st.image(image)
+        st.write("I am unable to show the decision tree visually because the visgraph doesn't work here on streamlit.")
         with values:
             st.write("The accuracy equals:", metrics.accuracy_score(y_test, y_pred_baseline))
         with matrix:
